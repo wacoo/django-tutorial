@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from .models import Machine
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+    machines = Machine.objects.all()
+    return render(request, 'index.html', {'machines': machines})
